@@ -130,6 +130,16 @@ In `resources/js/` inside the plugin, and publicly at [github.com/wpintegrations
 
 The **Logs** tab shows every delivery with the full request and response.
 
+== Screenshots ==
+
+1. Start a new integration: Brevo is the destination.
+2. Pick the form plugin: Contact Form 7, Elementor Pro, WPForms, Fluent Forms or Gravity Forms.
+3. Choose the form whose submissions go to Brevo.
+4. Map email, first and last name, choose your Brevo lists and turn on double opt-in.
+5. Every integration in one list, switched on or off with a click.
+6. The delivery log shows what reached Brevo.
+7. Settings: your Brevo API key, stored encrypted, and how long logs are kept.
+
 == Changelog ==
 
 = 1.0.1 =
