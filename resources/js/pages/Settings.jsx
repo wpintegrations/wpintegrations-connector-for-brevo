@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Form, InputNumber, Input, Button, Divider, Card, Typography, App as AntApp } from 'antd'
-import { ApiOutlined } from '@ant-design/icons'
+import { Form, InputNumber, Input, Button, Divider, App as AntApp } from 'antd'
+import { ApiOutlined, CheckCircleFilled, ArrowRightOutlined } from '@ant-design/icons'
 import { api } from '../api'
 import BrandLoader from '../components/BrandLoader'
 
@@ -117,21 +117,29 @@ export default function Settings({ meta, onChanged }) {
       </Form>
 
       {meta.pro_url && (
-        <Card size="small" title="Pro version" style={{ marginTop: 32 }}>
-          <Typography.Paragraph type="secondary">
-            A separate Pro plugin, sold on wpintegrations.net, adds:
-          </Typography.Paragraph>
-          <ul style={{ margin: '0 0 12px', paddingInlineStart: 20 }}>
+        <div className="wpi-pro-card">
+          <div className="wpi-pro-card__head">
+            <span className="wpi-pro-card__badge">PRO</span>
+            <span className="wpi-pro-card__title">Get more out of Brevo</span>
+          </div>
+          <p className="wpi-pro-card__lead">
+            Send every field your forms collect, never lose a lead to a failed send, and start Brevo
+            automations right from your forms.
+          </p>
+          <ul className="wpi-pro-card__list">
             {PRO_FEATURES.map(feature => (
               <li key={feature}>
-                <Typography.Text type="secondary">{feature}</Typography.Text>
+                <CheckCircleFilled className="wpi-pro-card__check" />
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
-          <Button href={meta.pro_url} target="_blank" rel="noreferrer">
-            Learn more
-          </Button>
-        </Card>
+          <div className="wpi-pro-card__foot">
+            <a className="wpi-pro-card__cta" href={meta.pro_url} target="_blank" rel="noreferrer">
+              Upgrade to Pro <ArrowRightOutlined />
+            </a>
+          </div>
+        </div>
       )}
     </div>
   )

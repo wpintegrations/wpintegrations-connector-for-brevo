@@ -157,3 +157,89 @@ input.ant-input.ant-input:focus {
 #wpi_brevo-admin-root .ant-checkbox-input:disabled {
   opacity: 0;
 }
+
+/* The Pro card on Settings: brand navy, so it stands apart from the form. */
+.wpi-pro-card {
+	margin-top: 32px;
+	padding: 24px;
+	border-radius: 12px;
+	background: #16234b;
+	color: #fff;
+}
+
+.wpi-pro-card__head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.wpi-pro-card__badge {
+	padding: 2px 8px;
+	border-radius: 4px;
+	background: #00c2a8;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+}
+
+.wpi-pro-card__title {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.wpi-pro-card__lead {
+	margin: 12px 0 16px;
+	color: #e6ebf5;
+	font-size: 15px;
+	line-height: 1.55;
+}
+
+.wpi-pro-card__list {
+	margin: 0 0 22px;
+	padding: 0;
+	list-style: none;
+}
+
+.wpi-pro-card__list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin: 0 0 10px;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.wpi-pro-card__check {
+	flex: none;
+	margin-top: 4px;
+	color: #00c2a8;
+}
+
+.wpi-pro-card__cta,
+.wpi-pro-card__cta:visited {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 44px;
+	padding: 0 20px;
+	border-radius: 8px;
+	background: #00c2a8;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.wpi-pro-card__cta:hover,
+.wpi-pro-card__cta:focus {
+	background: #00a892;
+	color: #fff;
+}
+
+.wpi-pro-card__foot {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px 16px;
+}
