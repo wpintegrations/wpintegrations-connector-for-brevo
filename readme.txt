@@ -4,7 +4,7 @@ Tags: brevo, sendinblue, contact form 7, wpforms, gravity forms
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -131,6 +131,9 @@ In `resources/js/` inside the plugin, and publicly at [github.com/wpintegrations
 The **Logs** tab shows every delivery with the full request and response.
 
 == Changelog ==
+
+= 1.0.1 =
+* Clearer messages when your Brevo account has no lists or no double opt-in template yet.
 
 = 1.0.0 =
 * Initial release: Contact Form 7, Elementor Pro, WPForms, Fluent Forms and Gravity Forms submissions to Brevo contacts and lists, with email, first and last name mapping, double opt-in, a delivery log and encrypted API key storage.

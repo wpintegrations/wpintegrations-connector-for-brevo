@@ -64,6 +64,13 @@ const GROUP_LABELS = {
 // Supported form plugins, named when none is active.
 const FORM_PLUGINS = 'Contact Form 7, Elementor Pro, WPForms, Fluent Forms or Gravity Forms'
 
+// What an empty option list means once the API key works: the account simply
+// has nothing of that kind yet.
+const EMPTY_OPTIONS = {
+  lists: 'No lists in your Brevo account yet',
+  doi_templates: 'No double opt-in template found in your Brevo account'
+}
+
 export default function Flows({ meta, onChanged, onGoToSettings }) {
   const { message, modal } = AntApp.useApp()
   const [flows, setFlows] = useState([])
@@ -567,10 +574,12 @@ export default function Flows({ meta, onChanged, onGoToSettings }) {
     if (ff.type === 'select') {
       let options = ff.options || []
       let loading = false
+      let fetched = false
       if (ff.options_source) {
         const source = optionMap[`${actionKey}:${ff.options_source}`]
         options = source?.options || []
         loading = !!source?.loading
+        fetched = !!source?.fetched
       }
       control = (
         <Select
@@ -584,9 +593,11 @@ export default function Flows({ meta, onChanged, onGoToSettings }) {
             ff.options_source
               ? loading
                 ? 'Loading…'
-                : options.length
+                : options.length || !fetched
                 ? 'Choose…'
-                : 'Nothing found — check the API key in Settings'
+                : !connectionFor(actionKey)
+                ? 'Add your Brevo API key in Settings first'
+                : EMPTY_OPTIONS[ff.options_source] || 'Nothing found in your Brevo account'
               : undefined
           }
         />
