@@ -81,12 +81,18 @@ export default function Settings({ meta, onChanged }) {
                 name={['actions', action.key, gf.key]}
                 label={gf.label}
                 extra={
-                  action.key === 'brevo' && gf.key === 'api_key'
-                    ? 'In Brevo, open SMTP & API → API keys and create a key. It is stored encrypted.'
-                    : undefined
+                  action.key === 'brevo' && gf.key === 'api_key' ? (
+                    <>
+                      Create one in{' '}
+                      <a href="https://app.brevo.com/settings/keys/api" target="_blank" rel="noreferrer">
+                        Brevo → SMTP &amp; API → API keys
+                      </a>
+                      . It is stored encrypted and only its last characters are shown.
+                    </>
+                  ) : undefined
                 }
               >
-                {gf.secret ? <Input.Password autoComplete="new-password" /> : <Input />}
+                <Input autoComplete="off" spellCheck={false} />
               </Form.Item>
             ))}
             <Button

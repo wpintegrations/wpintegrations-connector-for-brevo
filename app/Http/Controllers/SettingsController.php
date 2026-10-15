@@ -1,7 +1,8 @@
 <?php
 /**
  * Global settings, including per-action credentials. Secrets are stored
- * encrypted; the browser only ever sees a mask meaning "one is saved".
+ * encrypted; the browser only ever sees a mask ending in the key's last few
+ * characters, so the owner can tell which key is saved.
  *
  * @package WPIntegrations\BrevoConnector
  */
@@ -37,8 +38,9 @@ final class SettingsController extends Controller {
 				if ( empty( $field['secret'] ) ) {
 					continue;
 				}
-				if ( ! empty( $settings['actions'][ $action->key() ][ $field['key'] ] ) ) {
-					$settings['actions'][ $action->key() ][ $field['key'] ] = self::MASK;
+				$stored = (string) ( $settings['actions'][ $action->key() ][ $field['key'] ] ?? '' );
+				if ( '' !== $stored ) {
+					$settings['actions'][ $action->key() ][ $field['key'] ] = self::mask( $this->crypto->decrypt( $stored ) );
 				}
 			}
 		}
@@ -66,9 +68,10 @@ final class SettingsController extends Controller {
 				$incoming = sanitize_text_field( $incoming );
 
 				if ( ! empty( $field['secret'] ) ) {
-					if ( self::MASK === $incoming ) {
+					$stored = (string) ( $existing['actions'][ $action->key() ][ $key ] ?? '' );
+					if ( '' !== $stored && self::mask( $this->crypto->decrypt( $stored ) ) === $incoming ) {
 						// Unchanged, so keep the stored ciphertext.
-						$settings['actions'][ $action->key() ][ $key ] = $existing['actions'][ $action->key() ][ $key ] ?? '';
+						$settings['actions'][ $action->key() ][ $key ] = $stored;
 					} else {
 						$settings['actions'][ $action->key() ][ $key ] = '' === $incoming ? '' : $this->crypto->encrypt( $incoming );
 					}
@@ -81,5 +84,15 @@ final class SettingsController extends Controller {
 		update_option( 'wpi_brevo_settings', $settings, false );
 
 		return $this->show( $request );
+	}
+
+	/**
+	 * What the browser sees of a saved secret: stars and its last six
+	 * characters, or stars alone for one too short to spare them.
+	 *
+	 * @param string $secret Decrypted secret.
+	 */
+	private static function mask( string $secret ): string {
+		return str_repeat( '*', 10 ) . ( strlen( $secret ) > 18 ? substr( $secret, -6 ) : '' );
 	}
 }
