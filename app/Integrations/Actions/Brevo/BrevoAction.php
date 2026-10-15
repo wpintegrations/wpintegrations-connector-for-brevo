@@ -122,7 +122,7 @@ final class BrevoAction extends Action {
 			array(
 				'key'            => 'doi_template_id',
 				'label'          => __( 'Confirmation email template', 'wpintegrations-connector-for-brevo' ),
-				'help'           => __( 'A Brevo template with the {{ doubleoptin }} link.', 'wpintegrations-connector-for-brevo' ),
+				'help'           => __( 'A Brevo template whose button links to “Double opt-in link”.', 'wpintegrations-connector-for-brevo' ),
 				'type'           => 'select',
 				'options_source' => 'doi_templates',
 				'required'       => true,

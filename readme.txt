@@ -112,7 +112,7 @@ Brevo can limit API keys to IP addresses you approve. Add your web server's IP a
 
 = How do I set up double opt-in? =
 
-In Brevo, create a double opt-in template (a template containing the `{{ doubleoptin }}` link). In the integration, choose at least one list, turn on "Ask for confirmation by email", and pick that template. Brevo sends the email and adds the person to the lists once they confirm.
+In Brevo, create a double opt-in template (a template whose button links to “Double opt-in link”). In the integration, choose at least one list, turn on "Ask for confirmation by email", and pick that template. Brevo sends the email and adds the person to the lists once they confirm.
 
 = Does it work with the free version of Elementor? =
 
