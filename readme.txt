@@ -4,7 +4,7 @@ Tags: brevo, sendinblue, contact form 7, wpforms, gravity forms
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,9 @@ The **Logs** tab shows every delivery with the full request and response.
 7. Settings: your Brevo API key, stored encrypted, and how long logs are kept.
 
 == Changelog ==
+
+= 1.0.2 =
+* The Pro card on the Settings page now links to the plugin's own page on wpintegrations.net.
 
 = 1.0.1 =
 * Clearer messages when your Brevo account has no lists or no double opt-in template yet.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WPIntegrations Form Connector for Brevo
  * Description:       Send Contact Form 7, Elementor Pro, WPForms, Fluent Forms and Gravity Forms submissions to Brevo as contacts, with field mapping, list assignment and delivery logs. Not affiliated with Brevo or any form plugin.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            WPIntegrations
@@ -38,7 +38,7 @@ if ( $wpi_brevo_pro_alive ) {
 	return;
 }
 
-define( 'WPI_BREVO_VERSION', '1.0.1' );
+define( 'WPI_BREVO_VERSION', '1.0.2' );
 define( 'WPI_BREVO_FILE', __FILE__ );
 define( 'WPI_BREVO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPI_BREVO_URL', plugin_dir_url( __FILE__ ) );
