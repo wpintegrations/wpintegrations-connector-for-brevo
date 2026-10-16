@@ -46,7 +46,7 @@ One plugin covers them all: each integration picks a form plugin, then a form, t
 
 = Pro version =
 
-A separate Pro plugin, sold on wpintegrations.net, adds:
+A separate Pro plugin, sold on [wpintegrations.net](https://wpintegrations.net/plugins/connect-wordpress-forms-to-brevo/), adds:
 
 
 * Every Brevo contact attribute: SMS, WhatsApp, landline number, external ID and your account's own custom attributes
@@ -91,6 +91,8 @@ No data is sent to WPIntegrations or any other third party. Brevo terms of use: 
 1. Install and activate the plugin.
 2. In Brevo, create an API key under **SMTP & API → API keys**. Paste it on the plugin's **Settings** tab, save, and use **Test connection**.
 3. Open the **Integrations** tab and create an integration: pick the form plugin and the form, map the fields, choose lists, and save.
+
+The full walkthrough, double opt-in included, is in the [getting-started guide](https://wpintegrations.net/docs/wordpress-forms-brevo-getting-started/).
 
 == Frequently Asked Questions ==
 
